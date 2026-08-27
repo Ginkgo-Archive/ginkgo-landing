@@ -1,0 +1,42 @@
+/* Design: Control Room Editorial — ink-black canvas, mineral panels, Ginkgo Signal accent, editorial spacing and restrained motion. */
+@import "tailwindcss";
+@custom-variant dark (&:is(.dark *));
+@theme inline {
+  --font-display: "Space Grotesk", sans-serif;
+  --font-body: "DM Sans", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+  --color-ink: #050507;
+  --color-ink-light: #F6F2E8;
+  --color-ink-muted: #9CA49B;
+  --color-ink-soft: #4E574F;
+  --color-signal: #D4A843;
+  --color-copper: #C89B72;
+  --color-cyan: #3FD6CC;
+  --color-background: #050507;
+  --color-foreground: #F6F2E8;
+  --color-border: rgba(244,241,232,.12);
+  --radius-sm: 0px; --radius-md: 0px; --radius-lg: 0px; --radius-xl: 0px;
+}
+:root { --background: #101311; --foreground: #F4F1E8; --radius: 0px; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #050507; color: #F6F2E8; font-family: "DM Sans", sans-serif; -webkit-font-smoothing: antialiased; background-image: radial-gradient(circle at 70% 8%, rgba(212,168,67,.06), transparent 28%), radial-gradient(circle at 12% 42%, rgba(63,214,204,.025), transparent 24%); }
+.bg-ink { background-color: #050507; }
+.text-signal { color: #D4A843; }
+.bg-signal { background-color: #D4A843; }
+.text-cyan { color: #3FD6CC; }
+.bg-cyan { background-color: #3FD6CC; }
+@keyframes beam-flow { from { stroke-dashoffset: 80; } to { stroke-dashoffset: 0; } }
+.beam-flow { animation: beam-flow 3.2s linear infinite; }
+.gold-glow { filter: drop-shadow(0 0 24px rgba(212,168,67,.25)); }
+button, a, textarea { font: inherit; }
+button:focus-visible, a:focus-visible, textarea:focus-visible { outline: 2px solid #B7D36B; outline-offset: 3px; }
+::selection { background: #B7D36B; color: #101311; }
+@keyframes signal-pulse { 0%,100% { opacity: .35; transform: scaleX(.72); } 50% { opacity: 1; transform: scaleX(1); } }
+.signal-line { animation: signal-pulse 2.8s cubic-bezier(.23,1,.32,1) infinite; transform-origin: left; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+@layer base {
+  .font-display { font-family: "Space Grotesk", sans-serif; }
+  .font-body { font-family: "DM Sans", sans-serif; }
+  .font-mono { font-family: "IBM Plex Mono", monospace; }
+}
